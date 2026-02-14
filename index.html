@@ -10,17 +10,20 @@
 <body>
   <header class="topbar">
     <div class="brand">
-      <div class="logo-main">🪽 HORUS PHARMA 🪽</div>
-      <div class="logo-mini">🪽 H 🪽</div>
+      <div class="logo-main"><span class="wing">🪽</span> HORUS <span>PHARMA</span> <span class="wing">🪽</span></div>
+      <div class="logo-mini"><span class="wing">🪽</span> H <span class="wing">🪽</span></div>
     </div>
+
     <nav class="menu" id="menu">
       <a href="#home">Início</a>
       <a href="#catalogo">Catálogo</a>
       <a href="#promocoes">Promoções</a>
       <a href="#rastreio">Rastreio</a>
-      <a href="#ceo">CEO</a>
-      <button id="btnAdmin" class="ghost">Painel</button>
+      <button id="btnClientArea" class="ghost hidden">Área do Cliente</button>
+      <button id="btnProductCheck" class="ghost">Check Produto</button>
+      <button id="btnAdminArea" class="ghost hidden">Painel Admin</button>
       <button id="btnLogin" class="primary">Login</button>
+      <button id="btnRegister" class="ghost">Registrar</button>
       <button id="btnLogout" class="ghost hidden">Sair</button>
       <button id="btnCart" class="cart-btn"><i class="fa-solid fa-cart-shopping"></i> <span id="cartCount">0</span></button>
     </nav>
@@ -33,25 +36,24 @@
         <article class="slide active">
           <img src="imgs/img-1.jpg" alt="Banner Horus 1" class="banner-img" />
           <div class="banner-content">
-            <h1>Saúde com confiança</h1>
-            <p>Farmácia digital com rastreio e validação de autenticidade.</p>
+            <h1>Horus Pharma</h1>
+            <p>Medicamentos, vitaminas e dermocosméticos com segurança total.</p>
           </div>
         </article>
         <article class="slide">
           <img src="imgs/img-2.jpg" alt="Banner Horus 2" class="banner-img" />
           <div class="banner-content">
-            <h1>PIX instantâneo</h1>
-            <p>Pague no PIX com QR Code e confirmação rápida de pedido.</p>
+            <h1>Checkout Profissional</h1>
+            <p>PIX com confirmação e acompanhamento de pedido.</p>
           </div>
         </article>
         <article class="slide">
           <img src="imgs/img-3.jpg" alt="Banner Horus 3" class="banner-img" />
           <div class="banner-content">
-            <h1>Catálogo completo</h1>
-            <p>Medicamentos, vitaminas e dermocosméticos em um só lugar.</p>
+            <h1>Autenticidade por QR</h1>
+            <p>Validação única de produto com rastreabilidade.</p>
           </div>
         </article>
-        <div class="dots" id="carouselDots"></div>
       </div>
     </section>
 
@@ -86,33 +88,12 @@
     </section>
 
     <section id="rastreio" class="rastreio">
-      <h2><i class="fa-solid fa-truck-fast"></i> Rastreio de Produto (API)</h2>
+      <h2><i class="fa-solid fa-truck-fast"></i> Rastreio de Produto</h2>
       <div class="inline-form">
         <input id="trackingCode" placeholder="Código de rastreio" />
         <button id="trackBtn" class="primary">Rastrear</button>
       </div>
       <pre id="trackingResult">Aguardando código...</pre>
-    </section>
-
-    <section class="authenticity">
-      <h2><i class="fa-solid fa-shield"></i> Check de Autenticidade (QR - uso único)</h2>
-      <div class="inline-form">
-        <input id="qrValidateInput" placeholder="Código do lote/QR" />
-        <button id="validateQrBtn" class="primary">Validar</button>
-      </div>
-      <p id="qrValidateResult"></p>
-    </section>
-
-    <section class="orders-area">
-      <h2><i class="fa-solid fa-box-open"></i> Área do Cliente: Pedidos Comprados</h2>
-      <div id="ordersList" class="stack"></div>
-    </section>
-
-    <section id="ceo" class="ceo">
-      <h2><i class="fa-solid fa-chart-line"></i> Página CEO (Visão Completa)</h2>
-      <div id="ceoMetrics" class="grid"></div>
-      <textarea id="databaseAccess" readonly></textarea>
-      <button id="refreshDb" class="ghost">Atualizar visão de database</button>
     </section>
   </main>
 
@@ -128,15 +109,81 @@
     <div id="pixArea" class="hidden"></div>
   </aside>
 
-  <section id="adminPanel" class="admin hidden">
-    <h2>Painel Administrativo / Moderador</h2>
-    <div class="tabs">
-      <button data-tab="produtos">Produtos</button>
-      <button data-tab="cupons">Cupons</button>
-      <button data-tab="lotes">Lotes + QR</button>
-      <button data-tab="pedidos">Pedidos</button>
+  <section id="clientArea" class="private-area hidden">
+    <div class="private-header">
+      <h2><i class="fa-solid fa-user"></i> Área do Cliente</h2>
+      <button id="closeClientArea" class="ghost">Fechar</button>
     </div>
-    <div id="tabContent"></div>
+    <div id="ordersList" class="stack"></div>
+  </section>
+
+  <section id="productCheckArea" class="private-area hidden">
+    <div class="private-header">
+      <h2><i class="fa-solid fa-shield"></i> Check de Autenticidade</h2>
+      <button id="closeProductCheckArea" class="ghost">Fechar</button>
+    </div>
+    <div class="inline-form">
+      <input id="qrValidateInput" placeholder="Código do lote/QR" />
+      <button id="validateQrBtn" class="primary">Validar</button>
+    </div>
+    <p id="qrValidateResult"></p>
+  </section>
+
+  <section id="adminArea" class="private-area hidden">
+    <div class="private-header">
+      <h2><i class="fa-solid fa-user-shield"></i> Painel Administrativo</h2>
+      <button id="closeAdminArea" class="ghost">Fechar</button>
+    </div>
+    <div class="admin-grid">
+      <section class="card">
+        <h3>Cadastro de Produtos</h3>
+        <div class="inline-form">
+          <input id="pName" placeholder="Nome" />
+          <input id="pCat" placeholder="Categoria" />
+          <input id="pPrice" type="number" min="0" step="0.01" placeholder="Preço" />
+          <input id="pImage" placeholder="URL da imagem" />
+          <input id="pDesc" placeholder="Descrição" />
+          <button id="saveProd" class="primary">Salvar Produto</button>
+        </div>
+        <div id="adminProductsList"></div>
+      </section>
+
+      <section class="card">
+        <h3>Cupons</h3>
+        <div class="inline-form">
+          <input id="cCode" placeholder="Cupom" />
+          <input id="cVal" type="number" min="1" max="100" placeholder="%" />
+          <button id="saveCoupon" class="primary">Salvar Cupom</button>
+        </div>
+        <div id="adminCouponsList"></div>
+      </section>
+
+      <section class="card">
+        <h3>Lotes + QR</h3>
+        <div class="inline-form">
+          <input id="batchProd" placeholder="Produto" />
+          <input id="batchQty" type="number" min="1" placeholder="Quantidade" />
+          <button id="genBatch" class="primary">Gerar lote QR</button>
+        </div>
+        <div id="batchList"></div>
+      </section>
+
+      <section class="card">
+        <h3>Pedidos</h3>
+        <div id="adminOrdersList"></div>
+      </section>
+
+      <section class="card">
+        <h3>Check de produtos validados</h3>
+        <div id="validatedList"></div>
+      </section>
+
+      <section id="ceoSection" class="card hidden">
+        <h3><i class="fa-solid fa-chart-line"></i> Área CEO (somente admin)</h3>
+        <div id="ceoMetrics" class="grid"></div>
+        <textarea id="databaseAccess" readonly></textarea>
+      </section>
+    </div>
   </section>
 
   <div id="loginModal" class="modal hidden">
@@ -145,7 +192,16 @@
       <input id="loginUser" placeholder="Usuário" />
       <input id="loginPass" placeholder="Senha" type="password" />
       <button id="doLogin" class="primary">Entrar</button>
-      <small>Contas demo: admin/admin123 | moderador/mod123 | usuario/user123</small>
+      <small>admin/admin123 | moderador/mod123 | usuario/user123</small>
+    </div>
+  </div>
+
+  <div id="registerModal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Registro de Cliente</h3>
+      <input id="registerUser" placeholder="Novo usuário" />
+      <input id="registerPass" placeholder="Senha" type="password" />
+      <button id="doRegister" class="primary">Criar Conta</button>
     </div>
   </div>
 
