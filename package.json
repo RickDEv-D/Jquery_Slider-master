@@ -1,0 +1,10 @@
+{
+  "name": "horus-pharma",
+  "version": "1.0.0",
+  "description": "Horus Pharma SPA + API routes",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  }
+}
