@@ -1,33 +1,225 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
-    <title>Iniciando com jquery</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Horus Pharma | E-commerce Farmacêutico</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-
-
-    <div id="slider1" class="slider">
-
-        <img src="/imgs/img-1.jpg"">
-        <img src="/imgs/img-2.jpg"/>
-        <img src="/imgs/img-3.jpg"/>
-        <img src="/imgs/img-1.jpg"">
-        <img src="/imgs/img-2.jpg"/>
-        <img src="/imgs/img-3.jpg"/>
-        <img src="/imgs/img-1.jpg"">
-        <img src="/imgs/img-2.jpg"/>
-        <img src="/imgs/img-3.jpg"/>
-        <div class="bullet__nav">
-
-
-        </div>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo-main"><span class="wing">🪽</span> HORUS <span>PHARMA</span> <span class="wing">🪽</span></div>
+      <div class="logo-mini"><span class="wing">🪽</span> H <span class="wing">🪽</span></div>
     </div>
-    <script src="/js/jquey.js"></script>
-    <script src="/js/main.js"></script>
-    
+
+    <nav class="menu" id="menu">
+      <a href="#home">Início</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#promocoes">Promoções</a>
+      <a href="#rastreio">Rastreio</a>
+      <button id="btnClientArea" class="ghost hidden">Área do Cliente</button>
+      <button id="btnProductCheck" class="ghost">Check Produto</button>
+      <button id="btnAdminArea" class="ghost hidden">Painel Admin</button>
+      <button id="btnLogin" class="primary">Login</button>
+      <button id="btnRegister" class="ghost">Registrar</button>
+      <button id="btnLogout" class="ghost hidden">Sair</button>
+      <button id="btnCart" class="cart-btn"><i class="fa-solid fa-cart-shopping"></i> <span id="cartCount">0</span></button>
+    </nav>
+    <button id="menuToggle" class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="carousel" id="carousel">
+        <article class="slide active">
+          <img src="imgs/img-1.jpg" alt="Banner Horus 1" class="banner-img" />
+          <div class="banner-content">
+            <h1>Horus Pharma</h1>
+            <p>Medicamentos, vitaminas e dermocosméticos com segurança total.</p>
+          </div>
+        </article>
+        <article class="slide">
+          <img src="imgs/img-2.jpg" alt="Banner Horus 2" class="banner-img" />
+          <div class="banner-content">
+            <h1>Checkout Profissional</h1>
+            <p>PIX com confirmação e acompanhamento de pedido.</p>
+          </div>
+        </article>
+        <article class="slide">
+          <img src="imgs/img-3.jpg" alt="Banner Horus 3" class="banner-img" />
+          <div class="banner-content">
+            <h1>Autenticidade por QR</h1>
+            <p>Validação única de produto com rastreabilidade.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="categorias">
+      <h2><i class="fa-solid fa-layer-group"></i> Categorias</h2>
+      <div id="categoryGrid" class="grid"></div>
+    </section>
+
+    <section id="catalogo" class="catalogo">
+      <h2><i class="fa-solid fa-capsules"></i> Catálogo de Produtos</h2>
+      <div class="filtros">
+        <input id="searchInput" placeholder="Buscar por nome" />
+        <select id="filterCategory"></select>
+        <select id="filterSort">
+          <option value="">Ordenação</option>
+          <option value="priceAsc">Menor preço</option>
+          <option value="priceDesc">Maior preço</option>
+          <option value="bestSellers">Mais vendidos</option>
+        </select>
+      </div>
+      <div id="productGrid" class="grid"></div>
+      <article id="productDetail" class="detail hidden"></article>
+    </section>
+
+    <section id="promocoes" class="promo">
+      <h2><i class="fa-solid fa-ticket"></i> Promoções e Cupom</h2>
+      <p>Cupom ativo de boas-vindas: <strong>HORUS10</strong> (10% OFF)</p>
+      <div class="coupon-box">
+        <input id="couponInput" placeholder="Digite seu cupom" />
+        <button id="applyCoupon" class="primary">Aplicar no carrinho</button>
+      </div>
+    </section>
+
+    <section id="rastreio" class="rastreio">
+      <h2><i class="fa-solid fa-truck-fast"></i> Rastreio de Produto</h2>
+      <div class="inline-form">
+        <input id="trackingCode" placeholder="Código de rastreio" />
+        <button id="trackBtn" class="primary">Rastrear</button>
+      </div>
+      <pre id="trackingResult">Aguardando código...</pre>
+    </section>
+  </main>
+
+  <aside id="cartPanel" class="panel hidden">
+    <h3><i class="fa-solid fa-cart-shopping"></i> Carrinho</h3>
+    <div id="cartItems"></div>
+    <div class="totals">
+      <p>Subtotal: R$ <span id="subtotal">0.00</span></p>
+      <p>Desconto: R$ <span id="discount">0.00</span></p>
+      <p>Total: <strong>R$ <span id="total">0.00</span></strong></p>
+    </div>
+    <button id="pixBtn" class="primary">Pagar com PIX</button>
+    <div id="pixArea" class="hidden"></div>
+  </aside>
+
+  <section id="clientArea" class="private-area hidden">
+    <div class="private-header">
+      <h2><i class="fa-solid fa-user"></i> Área do Cliente</h2>
+      <button id="closeClientArea" class="ghost">Fechar</button>
+    </div>
+    <div id="ordersList" class="stack"></div>
+  </section>
+
+  <section id="productCheckArea" class="private-area hidden">
+    <div class="private-header">
+      <h2><i class="fa-solid fa-shield"></i> Check de Autenticidade</h2>
+      <button id="closeProductCheckArea" class="ghost">Fechar</button>
+    </div>
+    <div class="inline-form">
+      <input id="qrValidateInput" placeholder="Código do lote/QR" />
+      <button id="validateQrBtn" class="primary">Validar</button>
+    </div>
+    <p id="qrValidateResult"></p>
+  </section>
+
+  <section id="adminArea" class="private-area hidden">
+    <div class="private-header">
+      <h2><i class="fa-solid fa-user-shield"></i> Painel Administrativo</h2>
+      <button id="closeAdminArea" class="ghost">Fechar</button>
+    </div>
+    <div class="admin-grid">
+      <section class="card">
+        <h3>Cadastro de Produtos</h3>
+        <div class="inline-form">
+          <input id="pName" placeholder="Nome" />
+          <input id="pCat" placeholder="Categoria" />
+          <input id="pPrice" type="number" min="0" step="0.01" placeholder="Preço" />
+          <input id="pImage" placeholder="URL da imagem" />
+          <input id="pDesc" placeholder="Descrição" />
+          <button id="saveProd" class="primary">Salvar Produto</button>
+        </div>
+        <div id="adminProductsList"></div>
+      </section>
+
+      <section class="card">
+        <h3>Cupons</h3>
+        <div class="inline-form">
+          <input id="cCode" placeholder="Cupom" />
+          <input id="cVal" type="number" min="1" max="100" placeholder="%" />
+          <button id="saveCoupon" class="primary">Salvar Cupom</button>
+        </div>
+        <div id="adminCouponsList"></div>
+      </section>
+
+      <section class="card">
+        <h3>Lotes + QR</h3>
+        <div class="inline-form">
+          <input id="batchProd" placeholder="Produto" />
+          <input id="batchQty" type="number" min="1" placeholder="Quantidade" />
+          <button id="genBatch" class="primary">Gerar lote QR</button>
+        </div>
+        <div id="batchList"></div>
+      </section>
+
+      <section class="card">
+        <h3>Pedidos</h3>
+        <div id="adminOrdersList"></div>
+      </section>
+
+      <section class="card">
+        <h3>Check de produtos validados</h3>
+        <div id="validatedList"></div>
+      </section>
+
+      <section id="ceoSection" class="card hidden">
+        <h3><i class="fa-solid fa-chart-line"></i> Área CEO (somente admin)</h3>
+        <div id="ceoMetrics" class="grid"></div>
+        <textarea id="databaseAccess" readonly></textarea>
+      </section>
+    </div>
+  </section>
+
+  <div id="loginModal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Login</h3>
+      <input id="loginUser" placeholder="Usuário" />
+      <input id="loginPass" placeholder="Senha" type="password" />
+      <button id="doLogin" class="primary">Entrar</button>
+      <small>admin/admin123 | moderador/mod123 | usuario/user123</small>
+    </div>
+  </div>
+
+  <div id="registerModal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Registro de Cliente</h3>
+      <input id="registerUser" placeholder="Novo usuário" />
+      <input id="registerPass" placeholder="Senha" type="password" />
+      <button id="doRegister" class="primary">Criar Conta</button>
+    </div>
+  </div>
+
+  <div id="chatbot" class="chatbot">
+    <button id="chatToggle"><i class="fa-solid fa-comments"></i> Fale Conosco</button>
+    <div id="chatWindow" class="hidden">
+      <div id="chatMessages"></div>
+      <input id="chatInput" placeholder="Digite sua mensagem" />
+    </div>
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="#home"><i class="fa-solid fa-house"></i><span>Início</span></a>
+    <a href="#catalogo"><i class="fa-solid fa-pills"></i><span>Produtos</span></a>
+    <a href="#promocoes"><i class="fa-solid fa-tags"></i><span>Promoções</span></a>
+    <a href="#rastreio"><i class="fa-solid fa-truck"></i><span>Rastreio</span></a>
+  </nav>
+
+  <script src="js/main.js"></script>
 </body>
 </html>

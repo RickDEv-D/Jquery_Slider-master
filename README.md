@@ -1,80 +1,57 @@
-# Jquery_Slider-master
-Slider Feito em Jquery Puro - Fins de Estudos!
+# Horus Pharma - E-commerce Farmacêutico (SPA + Rotas API)
 
+Projeto com frontend (HTML/CSS/JS) e backend Node.js (sem dependências externas) para servir páginas e rotas de API.
 
+## Estrutura gerada (arquivos e rotas)
 
+- `server.js` → servidor principal
+- `routes/auth.js` → rotas de autenticação
+- `routes/products.js` → rotas de catálogo
+- `routes/orders.js` → rotas de pedidos
+- `routes/tracking.js` → rota de rastreio
+- `data/seed.json` → dados iniciais
+- `data/store.js` → leitura/escrita de banco local (`data/db.json`)
 
-$(function(){
+## Como rodar
 
+### 1) entrar na pasta
+```bash
+cd /workspace/Jquery_Slider-master
+```
 
-    var indiceAtual = 0;
-    var indiceMaximo = $('.slider img').length; // Pega Quantidade de items definido na classe 
-    var deley = 5000;
+### 2) iniciar servidor
+```bash
+npm start
+```
 
-    initSlider();
-    clickSlider();
-    
-    function initSlider(){
-    
-       for(var i = 0; i < indiceMaximo; i++){ // se meu ndicemaximo for menor que 0. Adicione + 1
+### 3) abrir no navegador
+- `http://localhost:8000`
 
-        if (i == 0){
+## Rotas disponíveis
 
-            $('.bullet__nav').append('<span style="background-color: #069;"></span>'); // se for igual a primeira img Adcione o span com estilo! 
+### Health
+- `GET /api/health`
 
-       }else{
+### Auth
+- `POST /api/auth/login`
+  - body: `{ "username": "admin", "password": "admin123" }`
 
-        $('.bullet__nav').append('<span></span>'); // se não for igual a primeira img Adcione a penas o na cor padrão span!
-        }
-    }
-       
+### Produtos
+- `GET /api/products`
+- `GET /api/products?q=dipirona&category=Analgésicos&sort=priceAsc`
+- `GET /api/products/:id`
 
-      $('.slider img').eq(indiceAtual).fadeIn() // Abrir a primeira img = 0
-            setInterval(function(){
-                    alternarSlider();
+### Pedidos
+- `GET /api/orders`
+- `GET /api/orders?user=usuario`
+- `GET /api/orders/:id`
+- `POST /api/orders`
+  - body: `{ "user": "usuario", "items": [{"id":1,"qty":1}], "total": 14.9 }`
 
-            }, deley);
-    }
+### Rastreio
+- `GET /api/tracking/:code`
 
-
-    // Função para Alterar as img
-    function alternarSlider(){
-
-            $('.slider img').eq(indiceAtual).stop().fadeOut(2000);  // Fechar depos de 2 segundos a img  com indice atual = 0 
-            indiceAtual+=1;                                        // Adicionar + 1 de zero foi para 1 então muda indicide assim mundando a img
-            if(indiceAtual == indiceMaximo){ // se o meu indice atual chegar no valor do meu indiceMaximo , meu indiceAtual volta para 0 
-
-                indiceAtual = 0 // Retornando para primeira img
-            }   
-
-            $('.bullet__nav span').css('background-color' , '#ccc');  // ao mudar o indice defini a cor padrão 
-            $('.bullet__nav span').eq(indiceAtual).css('background-color' , '#069'); // novo indice recebe nova cor
-            $('.slider img').eq(indiceAtual).stop().fadeIn(2000);   // depois de 2 segundos abra a proxíma img
-           
-
-    }
-
-        // Quando cliar no span faça
-    function clickSlider(){ 
-
-        $('.bullet__nav span').click(function(){
-
-            $('.slider img').eq(indiceAtual).stop().fadeOut(2000); // Feche a img com indice atual selecionado
-
-            indiceAtual = $(this).index(); // pega todos os valores , abre a proxima img é defini a cor padrão novamente
-            $('.slider img').eq(indiceAtual).stop().fadeIn(2000); // Abra nova img com novo indice
-            $('.bullet__nav span').css('background-color' , '#ccc'); // Defina cor padrão novamente para antigo indice
-            $(this).css('background-color' , '#069');                // Defina  style para novo para item  selecionado
-
-
-        });
-
-    }
-    
-
-
-
-
-});
-
-
+## Usuários de teste
+- `admin / admin123`
+- `moderador / mod123`
+- `usuario / user123`

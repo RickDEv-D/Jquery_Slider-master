@@ -1,0 +1,18 @@
+{
+  "users": [
+    { "id": 1, "username": "admin", "password": "admin123", "role": "admin" },
+    { "id": 2, "username": "moderador", "password": "mod123", "role": "moderador" },
+    { "id": 3, "username": "usuario", "password": "user123", "role": "usuario" }
+  ],
+  "products": [
+    { "id": 1, "name": "Dipirona 500mg", "category": "Analgésicos", "price": 14.9, "sold": 120, "description": "Alívio rápido para dor e febre." },
+    { "id": 2, "name": "Paracetamol 750mg", "category": "Analgésicos", "price": 17.9, "sold": 150, "description": "Controle de febre e dores leves a moderadas." },
+    { "id": 3, "name": "Vitamina C 1g", "category": "Vitaminas", "price": 22.5, "sold": 88, "description": "Suporte imunológico diário." },
+    { "id": 4, "name": "Complexo B", "category": "Vitaminas", "price": 31.2, "sold": 75, "description": "Energia e disposição." },
+    { "id": 5, "name": "Ômega 3 Premium", "category": "Suplementos", "price": 59.9, "sold": 190, "description": "Saúde cardiovascular e cerebral." }
+  ],
+  "orders": [],
+  "coupons": [
+    { "code": "HORUS10", "type": "percent", "value": 10 }
+  ]
+}
