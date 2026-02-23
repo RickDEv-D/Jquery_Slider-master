@@ -1,33 +1,122 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
-    <title>Iniciando com jquery</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css" />
+  <title>Portfolio Premium Responsivo</title>
 </head>
 <body>
+  <main class="frame-gallery">
+    <article class="device-frame desktop dark" aria-label="Desktop Dark 1440">
+      <div class="portfolio-shell">
+        <header class="navbar">
+          <strong class="logo">RH</strong>
+          <button class="menu-toggle" aria-label="Abrir menu">☰</button>
+          <nav class="nav-links">
+            <a href="#">Início</a><a href="#">Projetos</a><a href="#">Certificados</a><a href="#">Contato</a>
+          </nav>
+        </header>
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">Frontend Developer</p>
+            <h1>Ricardo Henriques</h1>
+            <p class="description">Desenvolvedor frontend focado em criar interfaces modernas e responsivas.</p>
+            <div class="button-row">
+              <a href="#" class="btn btn-primary">Ver Projetos</a>
+              <a href="#" class="btn btn-ghost">LinkedIn</a>
+              <a href="#" class="btn btn-ghost">GitHub</a>
+            </div>
+          </div>
+          <div class="hero-image-wrap">
+            <div class="image-glow"></div>
+            <img src="imgs/img-1.jpg" alt="Foto de Ricardo Henriques" class="hero-image" />
+          </div>
+        </section>
+        <section class="skills section">
+          <h2>Tecnologias</h2>
+          <div class="pill-wrap">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span><span>Node.js</span><span>Git</span>
+          </div>
+        </section>
+        <section class="projects section">
+          <h2>Projetos</h2>
+          <div class="card-grid projects-grid">
+            <article class="card"><div class="thumb"></div><h3>Dashboard SaaS</h3><p>Interface analítica com foco em performance e visual premium.</p><a href="#">Ver Projeto</a></article>
+            <article class="card"><div class="thumb"></div><h3>E-commerce UI</h3><p>Experiência de compra mobile-first com animações suaves.</p><a href="#">Ver Projeto</a></article>
+            <article class="card"><div class="thumb"></div><h3>Plataforma LMS</h3><p>Sistema modular com componentes reutilizáveis e acessíveis.</p><a href="#">Ver Projeto</a></article>
+          </div>
+        </section>
+        <section class="certificates section">
+          <h2>Certificados</h2>
+          <div class="card-grid cert-grid">
+            <article class="card small"><h3>React Avançado</h3><p>Arquitetura de apps escaláveis.</p></article>
+            <article class="card small"><h3>UI Engineering</h3><p>Sistemas de design modernos.</p></article>
+            <article class="card small"><h3>Node.js Pro</h3><p>APIs robustas e seguras.</p></article>
+            <article class="card small"><h3>Git Expert</h3><p>Fluxos de versionamento colaborativo.</p></article>
+          </div>
+        </section>
+        <footer class="footer">© 2026 Ricardo Henriques</footer>
+      </div>
+    </article>
 
+    <article class="device-frame desktop light" aria-label="Desktop Light 1440">
+      <div class="portfolio-shell"> 
+        <header class="navbar"><strong class="logo">RH</strong><button class="menu-toggle" aria-label="Abrir menu">☰</button><nav class="nav-links"><a href="#">Início</a><a href="#">Projetos</a><a href="#">Certificados</a><a href="#">Contato</a></nav></header>
+        <section class="hero"><div class="hero-copy"><p class="eyebrow">Frontend Developer</p><h1>Ricardo Henriques</h1><p class="description">Desenvolvedor frontend focado em criar interfaces modernas e responsivas.</p><div class="button-row"><a href="#" class="btn btn-primary">Ver Projetos</a><a href="#" class="btn btn-ghost">LinkedIn</a><a href="#" class="btn btn-ghost">GitHub</a></div></div><div class="hero-image-wrap"><div class="image-glow"></div><img src="imgs/img-2.jpg" alt="Foto de Ricardo Henriques" class="hero-image" /></div></section>
+        <section class="skills section"><h2>Tecnologias</h2><div class="pill-wrap"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span><span>Node.js</span><span>Git</span></div></section>
+        <section class="projects section"><h2>Projetos</h2><div class="card-grid projects-grid"><article class="card"><div class="thumb"></div><h3>Dashboard SaaS</h3><p>Interface analítica com foco em performance e visual premium.</p><a href="#">Ver Projeto</a></article><article class="card"><div class="thumb"></div><h3>E-commerce UI</h3><p>Experiência de compra mobile-first com animações suaves.</p><a href="#">Ver Projeto</a></article><article class="card"><div class="thumb"></div><h3>Plataforma LMS</h3><p>Sistema modular com componentes reutilizáveis e acessíveis.</p><a href="#">Ver Projeto</a></article></div></section>
+        <section class="certificates section"><h2>Certificados</h2><div class="card-grid cert-grid"><article class="card small"><h3>React Avançado</h3><p>Arquitetura de apps escaláveis.</p></article><article class="card small"><h3>UI Engineering</h3><p>Sistemas de design modernos.</p></article><article class="card small"><h3>Node.js Pro</h3><p>APIs robustas e seguras.</p></article><article class="card small"><h3>Git Expert</h3><p>Fluxos de versionamento colaborativo.</p></article></div></section>
+        <footer class="footer">© 2026 Ricardo Henriques</footer>
+      </div>
+    </article>
 
-    <div id="slider1" class="slider">
+    <article class="device-frame tablet dark" aria-label="Tablet Dark 768">
+      <div class="portfolio-shell">
+        <header class="navbar"><strong class="logo">RH</strong><button class="menu-toggle" aria-label="Abrir menu">☰</button><nav class="nav-links"><a href="#">Início</a><a href="#">Projetos</a><a href="#">Certificados</a><a href="#">Contato</a></nav></header>
+        <section class="hero"><div class="hero-copy"><p class="eyebrow">Frontend Developer</p><h1>Ricardo Henriques</h1><p class="description">Desenvolvedor frontend focado em criar interfaces modernas e responsivas.</p><div class="button-row"><a href="#" class="btn btn-primary">Ver Projetos</a><a href="#" class="btn btn-ghost">LinkedIn</a><a href="#" class="btn btn-ghost">GitHub</a></div></div><div class="hero-image-wrap"><div class="image-glow"></div><img src="imgs/img-3.jpg" alt="Foto de Ricardo Henriques" class="hero-image" /></div></section>
+        <section class="skills section"><h2>Tecnologias</h2><div class="pill-wrap"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span><span>Node.js</span><span>Git</span></div></section>
+        <section class="projects section"><h2>Projetos</h2><div class="card-grid projects-grid"><article class="card"><div class="thumb"></div><h3>Dashboard SaaS</h3><p>Interface analítica com foco em performance e visual premium.</p><a href="#">Ver Projeto</a></article><article class="card"><div class="thumb"></div><h3>E-commerce UI</h3><p>Experiência de compra mobile-first com animações suaves.</p><a href="#">Ver Projeto</a></article><article class="card"><div class="thumb"></div><h3>Plataforma LMS</h3><p>Sistema modular com componentes reutilizáveis e acessíveis.</p><a href="#">Ver Projeto</a></article></div></section>
+        <section class="certificates section"><h2>Certificados</h2><div class="card-grid cert-grid"><article class="card small"><h3>React Avançado</h3><p>Arquitetura de apps escaláveis.</p></article><article class="card small"><h3>UI Engineering</h3><p>Sistemas de design modernos.</p></article><article class="card small"><h3>Node.js Pro</h3><p>APIs robustas e seguras.</p></article><article class="card small"><h3>Git Expert</h3><p>Fluxos de versionamento colaborativo.</p></article></div></section>
+        <footer class="footer">© 2026 Ricardo Henriques</footer>
+      </div>
+    </article>
 
-        <img src="/imgs/img-1.jpg"">
-        <img src="/imgs/img-2.jpg"/>
-        <img src="/imgs/img-3.jpg"/>
-        <img src="/imgs/img-1.jpg"">
-        <img src="/imgs/img-2.jpg"/>
-        <img src="/imgs/img-3.jpg"/>
-        <img src="/imgs/img-1.jpg"">
-        <img src="/imgs/img-2.jpg"/>
-        <img src="/imgs/img-3.jpg"/>
-        <div class="bullet__nav">
+    <article class="device-frame tablet light" aria-label="Tablet Light 768">
+      <div class="portfolio-shell">
+        <header class="navbar"><strong class="logo">RH</strong><button class="menu-toggle" aria-label="Abrir menu">☰</button><nav class="nav-links"><a href="#">Início</a><a href="#">Projetos</a><a href="#">Certificados</a><a href="#">Contato</a></nav></header>
+        <section class="hero"><div class="hero-copy"><p class="eyebrow">Frontend Developer</p><h1>Ricardo Henriques</h1><p class="description">Desenvolvedor frontend focado em criar interfaces modernas e responsivas.</p><div class="button-row"><a href="#" class="btn btn-primary">Ver Projetos</a><a href="#" class="btn btn-ghost">LinkedIn</a><a href="#" class="btn btn-ghost">GitHub</a></div></div><div class="hero-image-wrap"><div class="image-glow"></div><img src="imgs/img-1.jpg" alt="Foto de Ricardo Henriques" class="hero-image" /></div></section>
+        <section class="skills section"><h2>Tecnologias</h2><div class="pill-wrap"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span><span>Node.js</span><span>Git</span></div></section>
+        <section class="projects section"><h2>Projetos</h2><div class="card-grid projects-grid"><article class="card"><div class="thumb"></div><h3>Dashboard SaaS</h3><p>Interface analítica com foco em performance e visual premium.</p><a href="#">Ver Projeto</a></article><article class="card"><div class="thumb"></div><h3>E-commerce UI</h3><p>Experiência de compra mobile-first com animações suaves.</p><a href="#">Ver Projeto</a></article><article class="card"><div class="thumb"></div><h3>Plataforma LMS</h3><p>Sistema modular com componentes reutilizáveis e acessíveis.</p><a href="#">Ver Projeto</a></article></div></section>
+        <section class="certificates section"><h2>Certificados</h2><div class="card-grid cert-grid"><article class="card small"><h3>React Avançado</h3><p>Arquitetura de apps escaláveis.</p></article><article class="card small"><h3>UI Engineering</h3><p>Sistemas de design modernos.</p></article><article class="card small"><h3>Node.js Pro</h3><p>APIs robustas e seguras.</p></article><article class="card small"><h3>Git Expert</h3><p>Fluxos de versionamento colaborativo.</p></article></div></section>
+        <footer class="footer">© 2026 Ricardo Henriques</footer>
+      </div>
+    </article>
 
+    <article class="device-frame mobile dark" aria-label="Mobile Dark 375">
+      <div class="portfolio-shell">
+        <header class="navbar"><strong class="logo">RH</strong><button class="menu-toggle" aria-label="Abrir menu">☰</button><nav class="nav-links"><a href="#">Início</a><a href="#">Projetos</a><a href="#">Certificados</a><a href="#">Contato</a></nav></header>
+        <section class="hero"><div class="hero-copy"><p class="eyebrow">Frontend Developer</p><h1>Ricardo Henriques</h1><p class="description">Desenvolvedor frontend focado em criar interfaces modernas e responsivas.</p><div class="button-row"><a href="#" class="btn btn-primary">Ver Projetos</a><a href="#" class="btn btn-ghost">LinkedIn</a><a href="#" class="btn btn-ghost">GitHub</a></div></div><div class="hero-image-wrap"><div class="image-glow"></div><img src="imgs/img-2.jpg" alt="Foto de Ricardo Henriques" class="hero-image" /></div></section>
+        <section class="skills section"><h2>Tecnologias</h2><div class="pill-wrap"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span><span>Node.js</span><span>Git</span></div></section>
+        <section class="projects section"><h2>Projetos</h2><div class="card-grid projects-grid"><article class="card"><div class="thumb"></div><h3>Dashboard SaaS</h3><p>Interface analítica com foco em performance e visual premium.</p><a href="#">Ver Projeto</a></article><article class="card"><div class="thumb"></div><h3>E-commerce UI</h3><p>Experiência de compra mobile-first com animações suaves.</p><a href="#">Ver Projeto</a></article><article class="card"><div class="thumb"></div><h3>Plataforma LMS</h3><p>Sistema modular com componentes reutilizáveis e acessíveis.</p><a href="#">Ver Projeto</a></article></div></section>
+        <section class="certificates section"><h2>Certificados</h2><div class="card-grid cert-grid"><article class="card small"><h3>React Avançado</h3><p>Arquitetura de apps escaláveis.</p></article><article class="card small"><h3>UI Engineering</h3><p>Sistemas de design modernos.</p></article><article class="card small"><h3>Node.js Pro</h3><p>APIs robustas e seguras.</p></article><article class="card small"><h3>Git Expert</h3><p>Fluxos de versionamento colaborativo.</p></article></div></section>
+        <footer class="footer">© 2026 Ricardo Henriques</footer>
+      </div>
+    </article>
 
-        </div>
-    </div>
-    <script src="/js/jquey.js"></script>
-    <script src="/js/main.js"></script>
-    
+    <article class="device-frame mobile light" aria-label="Mobile Light 375">
+      <div class="portfolio-shell">
+        <header class="navbar"><strong class="logo">RH</strong><button class="menu-toggle" aria-label="Abrir menu">☰</button><nav class="nav-links"><a href="#">Início</a><a href="#">Projetos</a><a href="#">Certificados</a><a href="#">Contato</a></nav></header>
+        <section class="hero"><div class="hero-copy"><p class="eyebrow">Frontend Developer</p><h1>Ricardo Henriques</h1><p class="description">Desenvolvedor frontend focado em criar interfaces modernas e responsivas.</p><div class="button-row"><a href="#" class="btn btn-primary">Ver Projetos</a><a href="#" class="btn btn-ghost">LinkedIn</a><a href="#" class="btn btn-ghost">GitHub</a></div></div><div class="hero-image-wrap"><div class="image-glow"></div><img src="imgs/img-3.jpg" alt="Foto de Ricardo Henriques" class="hero-image" /></div></section>
+        <section class="skills section"><h2>Tecnologias</h2><div class="pill-wrap"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span><span>Node.js</span><span>Git</span></div></section>
+        <section class="projects section"><h2>Projetos</h2><div class="card-grid projects-grid"><article class="card"><div class="thumb"></div><h3>Dashboard SaaS</h3><p>Interface analítica com foco em performance e visual premium.</p><a href="#">Ver Projeto</a></article><article class="card"><div class="thumb"></div><h3>E-commerce UI</h3><p>Experiência de compra mobile-first com animações suaves.</p><a href="#">Ver Projeto</a></article><article class="card"><div class="thumb"></div><h3>Plataforma LMS</h3><p>Sistema modular com componentes reutilizáveis e acessíveis.</p><a href="#">Ver Projeto</a></article></div></section>
+        <section class="certificates section"><h2>Certificados</h2><div class="card-grid cert-grid"><article class="card small"><h3>React Avançado</h3><p>Arquitetura de apps escaláveis.</p></article><article class="card small"><h3>UI Engineering</h3><p>Sistemas de design modernos.</p></article><article class="card small"><h3>Node.js Pro</h3><p>APIs robustas e seguras.</p></article><article class="card small"><h3>Git Expert</h3><p>Fluxos de versionamento colaborativo.</p></article></div></section>
+        <footer class="footer">© 2026 Ricardo Henriques</footer>
+      </div>
+    </article>
+  </main>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
